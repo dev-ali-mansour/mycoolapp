@@ -12,4 +12,14 @@ class FunRestController {
         return "Hello World!"
     }
 
+    @GetMapping("/workout")
+    fun getDailyWorkout(): String {
+        return "Run a hard 5k!"
+    }
+
+    @GetMapping("/fortune")
+    fun getDailyFortune(): String {
+        return "Today is your lucky day."
+    }
+
 }
