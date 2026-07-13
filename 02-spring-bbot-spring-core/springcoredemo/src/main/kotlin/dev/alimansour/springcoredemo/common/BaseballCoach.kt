@@ -3,8 +3,8 @@ package dev.alimansour.springcoredemo.common
 import org.springframework.stereotype.Component
 
 @Component
-class CricketCoach : Coach {
+class BaseballCoach : Coach {
     override fun getDailyWorkout(): String {
-        return "Practice fast bowling for 15 minutes"
+        return "Spend 30 minutes on batting practice"
     }
 }
