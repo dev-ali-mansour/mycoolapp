@@ -1,4 +1,4 @@
-package dev.alimansour.springcoredemo
+package dev.alimansour.springcoredemo.common
 
 import org.springframework.stereotype.Component
 
