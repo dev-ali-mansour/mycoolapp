@@ -31,6 +31,10 @@ class DemoController @Autowired constructor(
     private lateinit var coach: Coach
     */
 
+    init {
+        println("In constructor: ${javaClass.simpleName}")
+    }
+
     @GetMapping("/dailyworkout")
     fun getDailyWorkout(): String {
         return coach.getDailyWorkout()
