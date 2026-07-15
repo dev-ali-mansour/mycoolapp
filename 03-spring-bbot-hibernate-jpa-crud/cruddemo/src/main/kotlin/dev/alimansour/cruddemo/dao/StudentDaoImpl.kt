@@ -20,7 +20,7 @@ class StudentDaoImpl(
 
     override fun findAll(): List<Student> {
         // create query
-        val query = entityManager.createQuery("FROM Student", Student::class.java)
+        val query = entityManager.createQuery("FROM Student order by lastName desc", Student::class.java)
 
         // return query results
         return query.resultList
