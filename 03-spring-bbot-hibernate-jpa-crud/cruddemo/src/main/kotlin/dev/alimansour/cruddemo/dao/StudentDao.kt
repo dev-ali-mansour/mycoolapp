@@ -4,4 +4,7 @@ import dev.alimansour.cruddemo.entity.Student
 
 interface StudentDao {
     fun save(student: Student)
+
+    fun findById(id: Long): Student
+
 }

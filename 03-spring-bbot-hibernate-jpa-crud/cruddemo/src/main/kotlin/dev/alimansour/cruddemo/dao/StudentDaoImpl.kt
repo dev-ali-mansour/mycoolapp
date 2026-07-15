@@ -13,4 +13,8 @@ class StudentDaoImpl(
     override fun save(student: Student) {
         entityManager.persist(student)
     }
+
+    override fun findById(id: Long): Student {
+        return entityManager.find(Student::class.java, id)
+    }
 }
