@@ -7,4 +7,6 @@ interface StudentDao {
 
     fun findById(id: Long): Student
 
+    fun findAll(): List<Student>
+
 }
