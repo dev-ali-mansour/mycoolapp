@@ -1,18 +1,48 @@
 package dev.alimansour.cruddemo
 
+import dev.alimansour.cruddemo.dao.StudentDao
+import dev.alimansour.cruddemo.entity.Student
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
 
 @SpringBootApplication
-class CruddemoApplication{
+class CruddemoApplication {
 
     @Bean
-    fun commandLineRunner(): CommandLineRunner {
+    fun commandLineRunner(studentDao: StudentDao): CommandLineRunner {
         return CommandLineRunner { runner ->
-            println("Hello World")
+//            createStudent(studentDao)
+            createMultipleStudents(studentDao)
         }
+    }
+
+    private fun createMultipleStudents(studentDao: StudentDao) {
+        // Create multiple students
+        println("Creating 3 student objects ...")
+        val student1 = Student("John", "Doe", "john.doe@gmail.com")
+        val student2 = Student("Mary", "Public", "mary.public@gmail.com")
+        val student3 = Student("Bonita", "Applebum", "bonita.applebum@gmail.com")
+
+        // Save the student objects
+        println("Saving the students ...")
+        studentDao.save(student1)
+        studentDao.save(student2)
+        studentDao.save(student3)
+    }
+
+    private fun createStudent(studentDao: StudentDao) {
+        // Create the student object
+        println("Creating new student object ...")
+        val student = Student("Ali", "Mansour", "dev.ali.mansour@gmail.com")
+
+        // Save the student object
+        println("Saving the student ...")
+        studentDao.save(student)
+
+        // Display id of the saved student
+        println("Saved student. Generated id: " + student.id)
     }
 }
 
