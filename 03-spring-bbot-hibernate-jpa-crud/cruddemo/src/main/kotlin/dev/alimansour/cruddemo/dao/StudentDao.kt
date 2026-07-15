@@ -1,0 +1,7 @@
+package dev.alimansour.cruddemo.dao
+
+import dev.alimansour.cruddemo.entity.Student
+
+interface StudentDao {
+    fun save(student: Student)
+}
