@@ -18,8 +18,20 @@ class CruddemoApplication {
 //            readStudent(studentDao)
 //            queryForStudents(studentDao)
 //            queryForStudentsByLastName(studentDao)
-            updateStudent(studentDao)
+//            updateStudent(studentDao)
+            deleteStudent(studentDao)
         }
+    }
+
+    private fun deleteStudent(studentDao: StudentDao) {
+        // retrieve student based on the id: primary key
+        val studentId: Long = 3
+        val student = studentDao.findById(studentId)
+        println("Found student: $student")
+
+        // delete the student
+        studentDao.delete(studentId)
+        println("Deleted student: $student")
     }
 
     private fun updateStudent(studentDao: StudentDao) {
