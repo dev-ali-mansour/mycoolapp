@@ -2,6 +2,9 @@ package dev.alimansour.demo.rest
 
 import dev.alimansour.demo.entity.Student
 import jakarta.annotation.PostConstruct
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -36,6 +39,30 @@ class StudentRestController {
     fun getStudent(@PathVariable studentId: Int): Student {
 
         // just index into the list ... keep it simple for now
+
+        // check the studentId against list size
+
+        if (studentId >= students.size || studentId < 0)
+            throw StudentNotFoundException("Student id not found - $studentId")
+
         return students[studentId]
+    }
+
+    // Add an exception handler using @ExceptionHandler
+
+    @ExceptionHandler
+    fun handleException(exc: StudentNotFoundException): ResponseEntity<StudentErrorResponse> {
+
+        // create StudentErrorResponse
+
+        val error = StudentErrorResponse(
+            status = HttpStatus.NOT_FOUND.value(),
+            message = exc.message.orEmpty(),
+            timeStamp = System.currentTimeMillis()
+        )
+
+        // return ResponseEntity
+
+        return ResponseEntity(error, HttpStatus.NOT_FOUND)
     }
 }
