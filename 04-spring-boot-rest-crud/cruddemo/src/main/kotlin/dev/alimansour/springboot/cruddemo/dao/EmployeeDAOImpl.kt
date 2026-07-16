@@ -18,4 +18,19 @@ class EmployeeDAOImpl(
         // return the results
         return employees
     }
+
+    override fun findById(id: Long): Employee? {
+        val employee = entityManager.find(Employee::class.java, id)
+        return employee
+    }
+
+    override fun save(employee: Employee): Employee {
+        val dbEmployee = entityManager.merge(employee)
+        return dbEmployee
+    }
+
+    override fun deleteById(id: Long) {
+        val employee = entityManager.find(Employee::class.java, id)
+        entityManager.remove(employee)
+    }
 }
