@@ -8,25 +8,38 @@
 
 <h3>Student Registration Form</h3>
 
-<form th:action="@{/processStudentForm}" th:object="${student}" method="post">
+<form method="post" th:action="@{/processStudentForm}" th:object="${student}">
 
-    <label>
-        First Name: <input type="text" th:field="*{firstName}"/>
-    </label>
-
-    <br><br>
-
-    <label>
-        Last Name: <input type="text" th:field="*{lastName}"/>
-    </label>
+    First Name:
+    <label><input th:field="*{firstName}" type="text"/></label>
 
     <br><br>
 
+    Last Name: <label><input th:field="*{lastName}" type="text"/></label>
+
+    <br><br>
+
+    Country:
     <label>
-        Country:
         <select th:field="*{country}">
-            <option th:each="tempCountry:${countries}" th:value="${tempCountry}" th:text="${tempCountry}"></option>
+            <option th:each="tempCountry:${countries}" th:text="${tempCountry}" th:value="${tempCountry}"></option>
         </select>
+    </label>
+
+    <br><br>
+
+    Favorite Programming Language:
+    <label>
+        <input th:field="*{favoriteLanguage}" th:text="Go" th:value="Go" type="radio">
+    </label>
+    <label>
+        <input th:field="*{favoriteLanguage}" th:text="Kotlin" th:value="Kotlin" type="radio">
+    </label>
+    <label>
+        <input th:field="*{favoriteLanguage}" th:text="Java" th:value="Java" type="radio">
+    </label>
+    <label>
+        <input th:field="*{favoriteLanguage}" th:text="Python" th:value="Python" type="radio">
     </label>
 
     <br><br>
