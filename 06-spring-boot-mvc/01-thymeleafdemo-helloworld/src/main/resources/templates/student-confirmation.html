@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Student Confirmation</title>
@@ -20,7 +20,10 @@ Favorite Programming Language: <span th:text="${student.favoriteLanguage}"></spa
 
 <br><br>
 
-Favorite Operating Systems: <span th:text="${student.favoriteSystems}"></span>
+Favorite Operating Systems:
+<ul>
+    <li th:each="tempSystem : ${student.favoriteSystems}" th:text="${tempSystem}"></li>
+</ul>
 
 </body>
 </html>
