@@ -10,7 +10,8 @@ class Customer(
     @NotNull(message = "is required")
     @Size(min = 1, message = "is required")
     val lastName: String = "",
+    @NotNull(message = "is required")
     @Min(value = 0, message = "must be greater than or equal to zero")
     @Max(value = 10, message = "must be less than or equal to 10")
-    val freePasses: Int = 0,
+    val freePasses: Int? = null,
 )
