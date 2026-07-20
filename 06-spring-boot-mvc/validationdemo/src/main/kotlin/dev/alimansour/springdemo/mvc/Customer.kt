@@ -1,5 +1,6 @@
 package dev.alimansour.springdemo.mvc
 
+import dev.alimansour.springdemo.mvc.validation.CourseCode
 import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotNull
@@ -16,5 +17,7 @@ class Customer(
     @Max(value = 10, message = "must be less than or equal to 10")
     val freePasses: Int? = null,
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 chars/digits")
-    val postalCode: String = "",
+    val postalCode: String? = null,
+    @CourseCode
+    val courseCode: String? = null,
 )
