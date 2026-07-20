@@ -10,7 +10,7 @@ class EmployeeServiceImpl(
     private val employeeRepository: EmployeeRepository
 ) : EmployeeService {
     override fun findAll(): List<Employee> {
-        return employeeRepository.findAll()
+        return employeeRepository.findAllByOrderByLastNameDesc()
     }
 
     override fun findById(id: Long): Employee {
