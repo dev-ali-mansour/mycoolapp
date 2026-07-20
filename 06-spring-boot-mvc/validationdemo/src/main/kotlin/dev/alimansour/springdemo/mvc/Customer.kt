@@ -18,6 +18,6 @@ class Customer(
     val freePasses: Int? = null,
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 chars/digits")
     val postalCode: String? = null,
-    @CourseCode
+    @CourseCode(value = "AMDEV", message = "must start with AMDEV")
     val courseCode: String? = null,
 )
