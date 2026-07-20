@@ -50,4 +50,11 @@ class EmployeeController(employeesService: EmployeeService, private val employee
 
         return "redirect:/employees/list"
     }
+
+    @GetMapping("/delete")
+    fun delete(@RequestParam("employeeId") employeeId: Long): String {
+        employeeService.deleteById(employeeId)
+
+        return "redirect:/employees/list"
+    }
 }
