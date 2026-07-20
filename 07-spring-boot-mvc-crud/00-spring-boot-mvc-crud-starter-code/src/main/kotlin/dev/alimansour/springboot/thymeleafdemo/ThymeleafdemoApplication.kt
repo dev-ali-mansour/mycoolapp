@@ -1,4 +1,4 @@
-package dev.alimansour.springboot.cruddemo
+package dev.alimansour.springboot.thymeleafdemo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

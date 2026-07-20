@@ -1,6 +1,6 @@
-package dev.alimansour.springboot.cruddemo.controller
+package dev.alimansour.springboot.thymeleafdemo.controller
 
-import dev.alimansour.springboot.cruddemo.service.EmployeeService
+import dev.alimansour.springboot.thymeleafdemo.service.EmployeeService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
