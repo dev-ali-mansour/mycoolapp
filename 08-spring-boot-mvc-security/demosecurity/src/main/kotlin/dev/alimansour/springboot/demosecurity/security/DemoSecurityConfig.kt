@@ -3,32 +3,16 @@ package dev.alimansour.springboot.demosecurity.security
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
-import org.springframework.security.core.userdetails.User
-import org.springframework.security.core.userdetails.UserDetails
-import org.springframework.security.provisioning.InMemoryUserDetailsManager
+import org.springframework.security.provisioning.JdbcUserDetailsManager
+import org.springframework.security.provisioning.UserDetailsManager
 import org.springframework.security.web.SecurityFilterChain
+import javax.sql.DataSource
 
 @Configuration
 class DemoSecurityConfig {
     @Bean
-    fun userDetailsManager(): InMemoryUserDetailsManager {
-        val john: UserDetails = User.builder()
-            .username("john")
-            .password("{noop}test123")
-            .roles("EMPLOYEE")
-            .build()
-        val mary: UserDetails = User.builder()
-            .username("mary")
-            .password("{noop}test123")
-            .roles("EMPLOYEE", "MANAGER")
-            .build()
-        val susan: UserDetails = User.builder()
-            .username("susan")
-            .password("{noop}test123")
-            .roles("EMPLOYEE", "MANAGER", "ADMIN")
-            .build()
-
-        return InMemoryUserDetailsManager(john, mary, susan)
+    fun userDetailsManager(dataSource: DataSource): UserDetailsManager {
+        return JdbcUserDetailsManager(dataSource)
     }
 
     @Bean
@@ -54,4 +38,25 @@ class DemoSecurityConfig {
 
         return http.build()
     }
+
+    /*@Bean
+    fun userDetailsManager(): InMemoryUserDetailsManager {
+        val john: UserDetails = User.builder()
+            .username("john")
+            .password("{noop}test123")
+            .roles("EMPLOYEE")
+            .build()
+        val mary: UserDetails = User.builder()
+            .username("mary")
+            .password("{noop}test123")
+            .roles("EMPLOYEE", "MANAGER")
+            .build()
+        val susan: UserDetails = User.builder()
+            .username("susan")
+            .password("{noop}test123")
+            .roles("EMPLOYEE", "MANAGER", "ADMIN")
+            .build()
+
+        return InMemoryUserDetailsManager(john, mary, susan)
+    }*/
 }
