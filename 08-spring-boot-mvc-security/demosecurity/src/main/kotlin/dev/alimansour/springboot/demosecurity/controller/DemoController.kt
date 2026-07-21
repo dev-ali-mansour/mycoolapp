@@ -9,4 +9,9 @@ class DemoController {
     fun showHome(): String {
         return "home"
     }
+
+    @GetMapping("/leaders")
+    fun showLeaders(): String {
+        return "leaders"
+    }
 }
