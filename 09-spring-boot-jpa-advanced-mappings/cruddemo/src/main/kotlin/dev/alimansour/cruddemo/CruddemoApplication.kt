@@ -15,7 +15,15 @@ class CruddemoApplication {
         return CommandLineRunner {
 //            createInstructor(appDAO)
             findInstructor(appDAO)
+            deleteInstructor(appDAO)
         }
+    }
+
+    private fun deleteInstructor(appDAO: AppDAO) {
+        val id = 1
+        println("Deleting instructor with id: $id")
+        appDAO.deleteInstructorById(id)
+        println("Done")
     }
 
     private fun findInstructor(appDAO: AppDAO) {
