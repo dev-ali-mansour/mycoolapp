@@ -8,4 +8,5 @@ interface AppDAO {
     fun findInstructorById(id: Int): Instructor?
     fun deleteInstructorById(id: Int)
     fun findInstructorDetailById(id: Int): InstructorDetail?
+    fun deleteInstructorDetailById(id: Int)
 }

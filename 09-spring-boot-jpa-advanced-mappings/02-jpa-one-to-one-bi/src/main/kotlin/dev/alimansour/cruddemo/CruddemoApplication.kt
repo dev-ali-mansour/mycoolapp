@@ -16,8 +16,16 @@ class CruddemoApplication {
 //            createInstructor(appDAO)
 //            findInstructor(appDAO)
 //            deleteInstructor(appDAO)
-            findInstructorDetail(appDAO)
+//            findInstructorDetail(appDAO)
+            deleteInstructorDetail(appDAO)
         }
+    }
+
+    private fun deleteInstructorDetail(appDAO: AppDAO) {
+        val id = 2
+        println("deleting instructor detail with id: $id")
+        appDAO.deleteInstructorDetailById(id)
+        println("Done")
     }
 
     private fun findInstructorDetail(appDAO: AppDAO) {

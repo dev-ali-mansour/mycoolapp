@@ -27,4 +27,10 @@ class AppDAOImpl(private val entityManager: EntityManager) : AppDAO {
     override fun findInstructorDetailById(id: Int): InstructorDetail? {
         return entityManager.find(InstructorDetail::class.java, id)
     }
+
+    @Transactional
+    override fun deleteInstructorDetailById(id: Int) {
+        val instructorDetail = entityManager.find(InstructorDetail::class.java, id)
+        entityManager.remove(instructorDetail)
+    }
 }
