@@ -31,6 +31,10 @@ class AppDAOImpl(private val entityManager: EntityManager) : AppDAO {
     @Transactional
     override fun deleteInstructorDetailById(id: Int) {
         val instructorDetail = entityManager.find(InstructorDetail::class.java, id)
+
+        // break bi-directional link
+        instructorDetail?.instructor?.instructorDetail = null
+
         entityManager.remove(instructorDetail)
     }
 }

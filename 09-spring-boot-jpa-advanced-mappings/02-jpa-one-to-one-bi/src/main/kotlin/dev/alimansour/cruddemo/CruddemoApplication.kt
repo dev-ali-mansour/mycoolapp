@@ -22,7 +22,7 @@ class CruddemoApplication {
     }
 
     private fun deleteInstructorDetail(appDAO: AppDAO) {
-        val id = 2
+        val id = 3
         println("deleting instructor detail with id: $id")
         appDAO.deleteInstructorDetailById(id)
         println("Done")
