@@ -22,6 +22,6 @@ class InstructorDetail(
     var instructor: Instructor? = null
 
     override fun toString(): String {
-        return "InstructionDetail{id=$id, youtubeChannel='$youtubeChannel', hobby='$hobby', instructor='$instructor')}"
+        return "InstructorDetail{id=$id, youtubeChannel='$youtubeChannel', hobby='$hobby'}"
     }
 }

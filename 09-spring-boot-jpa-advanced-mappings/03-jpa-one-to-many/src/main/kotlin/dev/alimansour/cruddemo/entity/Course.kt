@@ -19,6 +19,6 @@ class Course(
     var instructor: Instructor? = null
 
     override fun toString(): String {
-        return "Course(id=$id, title='$title'"
+        return "Course{id=$id, title='$title'}"
     }
 }
