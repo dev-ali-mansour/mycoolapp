@@ -21,8 +21,22 @@ class CruddemoApplication {
 //            deleteInstructorDetail(appDAO)
 //            createInstructorWithCourses(appDAO)
 //            findInstructorWithCourses(appDAO)
-            findCoursesByInstructor(appDAO)
+//            findCoursesByInstructor(appDAO)
+            findInstructorWithCoursesJoinFetch(appDAO)
         }
+    }
+
+    private fun findInstructorWithCoursesJoinFetch(appDAO: AppDAO) {
+        val id = 1
+        println("Finding instructor with id: $id")
+
+        val instructor = appDAO.findInstructorByIdJoinFetch(id)
+
+        println("Instructor: $instructor")
+
+        println("The associated courses: ${instructor?.courses}")
+
+        println("Done!")
     }
 
     private fun findCoursesByInstructor(appDAO: AppDAO) {

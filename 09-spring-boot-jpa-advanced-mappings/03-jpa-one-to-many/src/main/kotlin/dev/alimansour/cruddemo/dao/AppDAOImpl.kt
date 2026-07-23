@@ -48,4 +48,16 @@ class AppDAOImpl(private val entityManager: EntityManager) : AppDAO {
 
         return query.resultList
     }
+
+    override fun findInstructorByIdJoinFetch(instructorId: Int): Instructor? {
+        val query = entityManager.createQuery(
+            "SELECT i FROM Instructor i " +
+                    "JOIN FETCH i.courses " +
+                    "WHERE i.id=:data",
+            Instructor::class.java
+        )
+        query.setParameter("data", instructorId)
+
+        return query.singleResult
+    }
 }
